@@ -1,0 +1,128 @@
+/* Solar Shop — hero section concept
+   Colours sampled from solarshop.co.nz. Edit the tokens below to apply global changes. */
+
+@font-face { font-family: "Jakarta"; font-weight: 500; font-display: swap; src: url("../assets/fonts/plus-jakarta-sans-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Jakarta"; font-weight: 600; font-display: swap; src: url("../assets/fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Jakarta"; font-weight: 700; font-display: swap; src: url("../assets/fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Jakarta"; font-weight: 800; font-display: swap; src: url("../assets/fonts/plus-jakarta-sans-latin-800-normal.woff2") format("woff2"); }
+@font-face { font-family: "Fraunces"; font-weight: 500; font-style: italic; font-display: swap; src: url("../assets/fonts/fraunces-latin-500-italic.woff2") format("woff2"); }
+
+:root {
+  /* Colours */
+  --ss-bg: #F4F8F0;          /* page background */
+  --ss-surface: #FFFFFF;     /* cards */
+  --ss-ink: #18301E;         /* headings */
+  --ss-text: #5F6D62;        /* body copy */
+  --ss-green: #4E7D51;       /* primary buttons, accents */
+  --ss-green-dark: #3E6641;
+  --ss-gold: #8C7234;        /* serif italic accent */
+  --ss-star: #B8963E;
+  --ss-line: #D9E3D6;
+
+  /* Typography */
+  --ss-sans: "Jakarta", "Plus Jakarta Sans", system-ui, sans-serif;
+  --ss-serif: "Fraunces", Georgia, serif;
+  --ss-h1: clamp(30px, 2.8vw, 54px);
+  --ss-lead: 16px;
+
+  /* Spacing & shape */
+  --ss-gutter: clamp(20px, 3.2vw, 60px);
+  --ss-radius: 28px;
+  --ss-hero-h: 360px;        /* ~1/3 of the current hero */
+  --ss-shadow: 0 24px 50px -30px rgba(24, 48, 30, .35);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--ss-bg); color: var(--ss-ink); font-family: var(--ss-sans); -webkit-font-smoothing: antialiased; }
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+
+/* ---------- Existing header (context only) ---------- */
+.site-header { padding: 14px var(--ss-gutter) 0; }
+.header-pill { max-width: 1800px; margin: 0 auto; background: var(--ss-surface); border-radius: 999px; box-shadow: 0 6px 24px -14px rgba(24, 48, 30, .35); display: flex; align-items: center; gap: 24px; padding: 10px 12px 10px 26px; min-height: 66px; }
+.logo img { height: 30px; width: auto; }
+.site-header nav { flex: 1; display: flex; justify-content: center; gap: 30px; font-size: 14.5px; font-weight: 500; }
+.site-header nav a { text-decoration: none; padding: 6px 2px; white-space: nowrap; }
+.site-header nav a.current { box-shadow: inset 0 -2px 0 var(--ss-green); }
+.site-header nav span { font-size: 11px; opacity: .7; }
+.call { display: flex; align-items: center; gap: 10px; background: var(--ss-bg); border-radius: 999px; padding: 6px 18px 6px 6px; text-decoration: none; }
+.call-ic { width: 40px; height: 40px; border-radius: 50%; background: var(--ss-green); display: flex; align-items: center; justify-content: center; }
+.call-ic svg { width: 18px; fill: none; stroke: #fff; stroke-width: 1.7; stroke-linejoin: round; }
+.call strong { display: block; white-space: nowrap; font-size: 14.5px; font-weight: 700; line-height: 1.1; }
+.call small { font-size: 11.5px; color: var(--ss-text); }
+
+/* ---------- HERO ---------- */
+.hero { padding: 22px var(--ss-gutter) 22px; }
+.hero-inner { max-width: 1800px; margin: 0 auto; min-height: var(--ss-hero-h); display: grid; grid-template-columns: minmax(0, 42fr) minmax(0, 33fr) minmax(0, 25fr); gap: 24px; align-items: stretch; }
+
+.hero-copy { background: var(--ss-surface); border-radius: var(--ss-radius); padding: 28px 36px; display: flex; flex-direction: column; justify-content: center; gap: 14px; box-shadow: var(--ss-shadow); }
+.pill { align-self: flex-start; margin: 0; display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border: 1.5px solid var(--ss-line); border-radius: 999px; font-size: 11.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--ss-green-dark); }
+.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ss-star); }
+.hero h1 { margin: 0; font-size: var(--ss-h1); line-height: 1.04; font-weight: 800; letter-spacing: -.035em; color: var(--ss-ink); }
+.hero h1 em { display: block; font-family: var(--ss-serif); font-style: italic; font-weight: 500; letter-spacing: -.01em; color: var(--ss-gold); }
+.lead { margin: 0; max-width: 560px; font-size: var(--ss-lead); line-height: 1.55; color: var(--ss-text); }
+.lead strong { color: var(--ss-ink); font-weight: 700; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 50px; padding: 0 24px; border-radius: 999px; font-size: 15.5px; font-weight: 700; text-decoration: none; letter-spacing: -.01em; transition: background-color .2s ease, transform .2s ease; }
+.btn:hover { transform: translateY(-1px); }
+.btn-solid { background: var(--ss-green); color: #fff; padding-right: 8px; }
+.btn-solid:hover { background: var(--ss-green-dark); }
+.arrow { width: 34px; height: 34px; border-radius: 50%; background: #F1E3B5; display: flex; align-items: center; justify-content: center; }
+.arrow svg { width: 16px; fill: none; stroke: var(--ss-ink); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.btn-line { border: 1.5px solid var(--ss-green); color: var(--ss-green-dark); background: transparent; }
+.btn-line:hover { background: #EAF1E7; }
+
+.hero-media { position: relative; border-radius: var(--ss-radius); overflow: hidden; min-height: var(--ss-hero-h); box-shadow: var(--ss-shadow); }
+.photo { margin: 0; position: absolute; inset: 0; }
+.photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%; }
+.rating { position: absolute; left: 16px; bottom: 16px; display: flex; align-items: center; gap: 8px; background: rgba(255, 255, 255, .94); border-radius: 999px; padding: 7px 14px; font-size: 12.5px; font-weight: 600; }
+.stars { color: var(--ss-star); letter-spacing: 2px; font-size: 12px; }
+.hero-side { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.side-card { flex: 1; background: var(--ss-surface); border-radius: var(--ss-radius); padding: 24px 24px 20px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; box-shadow: var(--ss-shadow); }
+.side-card p { margin: 8px 0 0; font-size: 13.5px; line-height: 1.5; color: var(--ss-text); }
+.side-card h2 { margin: 0; font-size: 21px; line-height: 1.25; font-weight: 700; letter-spacing: -.02em; color: var(--ss-ink); }
+.facts { margin: 0; padding: 16px 0 0; list-style: none; display: flex; border-top: 1px solid var(--ss-line); }
+.facts li { flex: 1; display: flex; flex-direction: column; gap: 2px; padding-right: 10px; }
+.facts strong { font-size: 24px; font-weight: 700; color: var(--ss-green); line-height: 1.1; letter-spacing: -.02em; }
+.facts span { font-size: 12px; color: var(--ss-text); }
+.brand-card { background: var(--ss-surface); border-radius: var(--ss-radius); padding: 22px 26px; display: flex; align-items: center; justify-content: center; box-shadow: var(--ss-shadow); }
+.brand-card img { width: 100%; max-width: 260px; height: auto; }
+
+.note { max-width: 1800px; margin: 10px auto 40px; padding: 0 var(--ss-gutter); font-size: 12.5px; color: var(--ss-text); }
+
+/* ---------- Tablet ---------- */
+@media (max-width: 1180px) {
+  .site-header nav { display: none; }
+  .header-pill { justify-content: space-between; }
+  .hero-inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .hero-side { grid-column: 1 / -1; flex-direction: row; }
+  .side-card { flex: 1 1 60%; }
+  .brand-card { flex: 1 1 40%; }
+}
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: minmax(0, 1fr); }
+  .hero-side { grid-column: auto; }
+  .hero-media { min-height: 260px; }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 560px) {
+  .site-header { padding: 10px 12px 0; }
+  .header-pill { padding: 8px 8px 8px 18px; min-height: 58px; }
+  .logo img { height: 24px; }
+  .call { padding: 0; background: none; }
+  .call span:last-child { display: none; }
+  .hero { padding: 14px 12px; }
+  .hero-inner { gap: 12px; }
+  .hero-copy { padding: 22px 20px; gap: 12px; border-radius: 22px; }
+  .hero h1 { font-size: 34px; }
+  .lead { font-size: 15.5px; }
+  .actions .btn { width: 100%; }
+  .hero-media { min-height: 230px; border-radius: 22px; }
+  .rating { left: 10px; bottom: 10px; font-size: 11px; padding: 6px 10px; }
+  .hero-side { flex-direction: column; gap: 12px; }
+  .side-card, .brand-card { border-radius: 22px; padding: 20px; }
+  .brand-card img { max-width: 230px; }
+}
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
